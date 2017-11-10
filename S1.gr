@@ -1,0 +1,139 @@
+# The start symbol is START.
+
+# These two rules are required; please do not change these weights!
+99	START	S1
+1	START	S2
+
+# This is a very, very, very simple grammar to get you started.
+
+# Sentences
+1	S1	NP VP .
+1	S1	NP VP ?
+1	S1	VP VP !
+1	S1	NP VP !
+
+#  Verb phrases
+1	VP	VerbT NP
+
+# Noun phrases
+20	NP	Det Nbar
+
+# Noun phrase, inner level
+20	Nbar	Noun
+1	Nbar	Nbar PP
+
+# Prepositional phrase
+1	PP	Prep NP
+
+#new rules added to parse the sentence 3 onwards in den.sen 
+
+1	NP	Nbar
+1	Nbar	Proper
+
+#Arthur rides the plodding horse near the castle .
+1	Nbar	Adj Nbar
+
+#the Holy Grail is a chalice .
+1	Nbar	Prop
+
+#the sensational Holy Grail is a sacred chalice .
+#parsed with the prev rules
+
+#every coconut was carried to the hottest mountains .
+1	VP	VBD VBD PP
+1	PP	TO NP
+1	Nbar	NounS
+
+#sixty strangers are at the Round Table .
+1	NP	Num Nbar
+1	VP	VBT PP
+1	VP	VB PP
+
+#to comment above one
+
+#Sir Lancelot might have spoken .
+1	VP	MD VB VBD
+
+#Guinevere had been riding with Patsy for five weary nights .
+1	VP	VBD VBD VP
+1	VP	VBP PP
+1	NP	Proper Prep Nbar
+
+#Sir Bedevere might have been suggesting this quest .
+1	VP	MD VB VP
+1	VP	VBD VBP NP
+
+#the Britons migrate south frequently .
+1	VP	VB ADVB
+1	ADVB	RB RB
+1	Nbar	NPS
+
+#Arthur and Guinevere ride frequently near the castle .
+1	NP	Nbar CON Nbar
+1	ADVB	RB PP
+
+#he suggests to grow fruit at home .
+1	NP	PN
+1	VP	VBZ TO VP
+1	VP	VBT NP
+1	NP	Nbar Prep Nbar
+
+#riding to Camelot is not hard .
+1	S1	VP VP .
+1	VP	VerbT RB Adj
+
+#do coconuts speak ?
+1	NP	VERB Nbar
+1	VP	VB
+
+#ask professor
+
+#why does England have a king ?
+1	NP	WHRB VBZ Nbar
+1	VP	VB NP
+
+#6 Challenge sentences done!!
+
+#it is Sir Lancelot who knows Zoot !
+1	VP	VP Sbar
+1	Sbar	WHPN VBZ NP
+
+#either Arthur knows or Patsy does .
+1	VP	VBZ NP VBZ
+1	NP	CON Nbar
+
+#neither Sir Lancelot nor Guinevere will speak of it .
+1	NP	NP NP
+1	VP	MD VB PP
+
+#the king drank to the castle that was his home .
+1	VP	VBD PP
+1	NP	NP Det S
+1	S	VBD NP
+1	NP	PN Nbar
+
+#Arthur rode to Camelot and drank from his chalice .
+1	VP	VP CON VP
+1	VP	VBD Prep NP
+
+#do not speak again !
+1	VP	VERB RB
+1	VP	VB RB
+
+#when the king drinks , Patsy drinks .
+1	S1	Sbar , S1 
+1	Sbar	WHRB NP VP
+1	VP	VerbT
+
+#Arthur knows Patsy , the trusty servant .
+1	Sbar	NP VP ,
+1	S1	Sbar NP .
+1	VP	VBZ Nbar
+
+#unfortunately , Sir Lancelot speaks again . 
+1	S1	RB , S1
+1	VP	VBZ RB
+
+#end
+
+
