@@ -12,5 +12,7 @@ The set of sentences to parse is given in a file called dev.sen.  There is a jav
  
 Goal is to produce as many parse trees as possible that use your rules from S1, instead of the backoff rules from S2. 
 
-
- 
+#Run Configurations
+ 1. Navigate to the PCFG directory
+ 2. $  python S2generator.py > S2.gr 
+ 3. $  java -jar pcfg.jar parse -t dev.sen *.gr  
